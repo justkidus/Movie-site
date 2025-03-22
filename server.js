@@ -16,21 +16,20 @@ const connect = async () => {
 		throw error;
 	}
 };
-// const allowedOrigins = ['http://localhost:5173'];
-// app.use(
-// 	cors({
-// 		origin: allowedOrigins,
-// 		credentials: true,
-// 		methods: ['GET', 'PUT', 'POST', 'DELETE'],
-// 		allowedHeaders: ['Content-Type', 'Authorization'],
-// 	})
-// );
+const allowedOrigins = [
+	'https://movie-site-fawn.vercel.app',
+	'https://movie-site-production-2779.up.railway.app',
+	'http://localhost:5173',
+];
 app.use(
 	cors({
-		origin: 'http://localhost:5173', // Frontend URL
+		origin: allowedOrigins,
 		credentials: true,
+		methods: ['GET', 'PUT', 'POST', 'DELETE'],
+		allowedHeaders: ['Content-Type', 'Authorization'],
 	})
 );
+
 app.use(express.json());
 app.use(cookieparser());
 
@@ -48,6 +47,6 @@ app.use('/api', profilerouter);
 const port = process.env.PORT;
 app.listen(port, () => {
 	connect();
-	console.log(`server is running http://localhost:${process.env.port}`);
+	console.log(`server is running http://localhost:${process.env.PORT}`);
 });
 // YXyxg9HdTh20g6zc;
