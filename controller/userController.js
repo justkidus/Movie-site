@@ -153,10 +153,19 @@ const watchHistory = async () => {
 		throw error;
 	}
 };
+const checkAuth = async (req, res) => {
+	try {
+		res.status(200).json(req.user);
+		console.log('uer is authenticated ', req.user);
+	} catch (error) {
+		throw error;
+	}
+};
 module.exports = {
 	Register,
 	Login,
 	getUserProfile,
 	watchHistory,
 	updateWatchProgress,
+	checkAuth,
 };

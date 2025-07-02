@@ -3,6 +3,7 @@ const {
 	Register,
 	Login,
 	getUserProfile,
+	checkAuth,
 } = require('../controller/userController');
 const verifyToken = require('../middlewear/verifyToken');
 const router = express.Router();
@@ -19,4 +20,5 @@ router.post('/login', Login);
 
 //get all Profiles
 router.get('/user/getprofiles/:id', verifyToken, getUserProfile);
+router.get('/user/checkAuth', verifyToken, checkAuth);
 module.exports = router;
