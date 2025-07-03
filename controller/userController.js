@@ -70,8 +70,8 @@ const Login = async (req, res, next) => {
 		res
 			.cookie('access_token', token, {
 				httpOnly: false,
-				// secure: none,// this only work in HTTPS
-				sameSite: 'strict', // this work if the backend and frontend working on the same port
+				secure: none, // this only work in HTTPS
+				sameSite: 'none', // this work if the backend and frontend working on the same port
 			})
 			.status(200)
 			.json({ ...otherDetails });
