@@ -18,7 +18,6 @@ const connect = async () => {
 };
 const allowedOrigins = [
 	'https://movie-site-fawn.vercel.app',
-	'https://movie-site-production-2779.up.railway.app',
 	'http://localhost:5173',
 ];
 app.use(
