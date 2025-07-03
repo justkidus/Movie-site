@@ -69,9 +69,9 @@ const Login = async (req, res, next) => {
 		const { password: _, isAdmin, ...otherDetails } = user._doc;
 		res
 			.cookie('access_token', token, {
-				httpOnly: false,
-				secure: none, // this only work in HTTPS
-				sameSite: 'none', // this work if the backend and frontend working on the same port
+				httpOnly: true,
+				secure: true, // this only work in HTTPS
+				sameSite: 'None', // this work if the backend and frontend working on the same port
 			})
 			.status(200)
 			.json({ ...otherDetails });
